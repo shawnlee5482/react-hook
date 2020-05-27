@@ -5,10 +5,10 @@ testing-library provides `renderHook`
 
 https://kentcdodds.com/blog/how-to-test-custom-react-hooks
 
-
+````````
 import { renderHook, act } from "@testing-library/react-hooks";
 import useCustomHook from './CustomHook';
-````````
+
 describe("inital setting", () => {
     it("initial data is set as ", () => {
       const {result} = renderHook(() => useCustomHook('Hello'));
