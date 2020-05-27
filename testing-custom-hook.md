@@ -35,3 +35,27 @@ describe("inital setting", () => {
     });
 });
 `````````````
+
+2. Testing a component which contains a custom hook
+
+```
+import React from 'react';
+import { render } from '@testing-library/react';
+import StateHook from './StateHook';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import useCustomHook from './CustomHook'
+
+jest.mock('./CustomHook');
+
+test('Statehook shows the message', () => {
+    useCustomHook.mockReturnValue({state: 'Mocked Return Value', setCustomState: () => {}});
+    const { getByText } = render(
+        <Provider store={store}>
+            <StateHook/>
+        </Provider>
+    );
+    const linkElement = getByText(/Mocked Return Value/i);
+    expect(linkElement).toBeInTheDocument();
+});
+```
