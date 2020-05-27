@@ -5,7 +5,7 @@ testing-library provides `renderHook`
 
 https://kentcdodds.com/blog/how-to-test-custom-react-hooks
 
-````````
+```
 import { renderHook, act } from "@testing-library/react-hooks";
 import useCustomHook from './CustomHook';
 
@@ -34,7 +34,7 @@ describe("inital setting", () => {
         expect(result.current.state).toStrictEqual('');
     });
 });
-`````````````
+```
 
 2. Testing a component which contains a custom hook
 
